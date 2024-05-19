@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
-import { TypeOrmModule as NestTypeOrmModule } from '@nestjs/typeorm'
+import { TypeOrmModule } from '@nestjs/typeorm'
 
 
 @Module({
   imports: [
-    NestTypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),
@@ -13,9 +13,9 @@ import { TypeOrmModule as NestTypeOrmModule } from '@nestjs/typeorm'
       database: process.env.POSTGRES_DATABASE,
       entities: [ 'dist/entities/**/*.entity.js' ],
       synchronize: true,
-    //   migrations: [ 'dist/db/migrations/**/*.js' ],
+      // migrations: [ 'dist/db/migrations/**/*.js' ],
       // cli: { migrationsDir: 'src/db/migrations' },
     })
   ]
 })
-export class TypeOrmModule {}
+export class TypeOrmConfig {}

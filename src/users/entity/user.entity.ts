@@ -20,5 +20,5 @@ export class UserEntity {
 
   @Column({ nullable: true })
   @Exclude({ toPlainOnly: true })
-    password: string;
+    password: string | null;
 }
