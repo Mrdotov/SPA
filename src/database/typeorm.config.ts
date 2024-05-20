@@ -1,21 +1,19 @@
-import { Module } from '@nestjs/common'
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { Injectable } from '@nestjs/common'
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm'
+import { User } from 'src/users/entity/user.entity';
 
-
-@Module({
-  imports: [
-    TypeOrmModule.forRoot({
+@Injectable()
+export class TypeOrmConfigService implements TypeOrmOptionsFactory {
+  createTypeOrmOptions(): TypeOrmModuleOptions {
+    return {
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: Number(process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USERNAME,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
-      entities: [ 'dist/entities/**/*.entity.js' ],
+      host: process.env.DATABASE_HOST,
+      port: Number(process.env.DATABASE_PORT), // Postgres default port
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
+      entities: [User],
       synchronize: true,
-      // migrations: [ 'dist/db/migrations/**/*.js' ],
-      // cli: { migrationsDir: 'src/db/migrations' },
-    })
-  ]
-})
-export class TypeOrmConfig {}
+    };
+  }
+}
