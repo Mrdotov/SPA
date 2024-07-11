@@ -1,21 +1,27 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "module": "commonjs",  // Specifies the module system (CommonJS in this case)
+    "declaration": true,   // Generates corresponding `.d.ts` files for TypeScript interfaces and types
+    "removeComments": true, // Removes comments from the output JavaScript files
+    "emitDecoratorMetadata": true, // Enables emitting decorator metadata for TypeScript decorators
+    "experimentalDecorators": true, // Enables support for experimental TypeScript decorators
+    "allowSyntheticDefaultImports": true, // Allows default imports from modules with no default export
+    "target": "ES2021",    // Sets the ECMAScript target version to ES2021
+    "sourceMap": true,     // Generates source maps for easier debugging
+    "outDir": "./dist",    // Specifies the output directory for compiled JavaScript files
+    "baseUrl": "./",       // Base URL to resolve non-relative module names
+    "incremental": true,   // Enables incremental compilation, which speeds up subsequent builds
+    "skipLibCheck": true,  // Skips type checking of all declaration (`.d.ts`) files
+    "strictNullChecks": false, // Disables strict null checks for variables
+    "noImplicitAny": false,    // Allows implicit any types (not recommended for strict TypeScript projects)
+    "strictBindCallApply": false, // Disables strict checking for `bind`, `call`, and `apply` methods
+    "forceConsistentCasingInFileNames": false, // Disables enforcing consistent casing in file names
+    "noFallthroughCasesInSwitch": false // Allows fallthrough cases in switch statements
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
