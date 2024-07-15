@@ -1,12 +1,18 @@
-import { Entity } from "typeorm";
+import { Column, Entity } from "typeorm";
 
 @Entity()
-export class Book { 
- id: number;
- email: string;
- password: string;
- firstName: string;
- lastName: string;
- hiddenField = Date.now();
+export class UserEntity { 
+    @Column({ unique: true })
+    id: number;
+    @Column({ unique: true })
+    email: string;
+    @Column({ unique: true })
+    password: string;
+    @Column({ unique: true })
+    firstName: string;
+    @Column({ unique: true })
+    lastName: string;
+    @Column({ unique: true })
+    hiddenField = Date.now();
 }
 
